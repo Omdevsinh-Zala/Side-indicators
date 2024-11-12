@@ -18,9 +18,19 @@ html {
   display: flex;
   align-items: flex-start;
 }
+@media (max-width: 767px) {
+  .container {
+    flex-wrap: wrap-reverse;
+  }
+}
 
 .content-wrap {
   width: 80%;
+}
+@media (max-width: 767px) {
+  .content-wrap {
+    width: 100%;
+  }
 }
 .content-wrap .high-class {
   height: 100dvh;
@@ -38,6 +48,12 @@ html {
   list-style: none;
   list-style-position: outside;
   border-left: 3px solid rgba(0, 0, 0, 0.1960784314);
+}
+@media (max-width: 767px) {
+  .link-wrap .link-list {
+    border-left: none;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.1960784314);
+  }
 }
 .link-wrap .link-list .link-items {
   padding: 8px 15px;
@@ -60,9 +76,44 @@ html {
   background-color: black;
   transform: scaleY(0);
 }
+@media (max-width: 767px) {
+  .link-wrap .link-list .link-items::before {
+    transform-origin: right;
+    width: 100%;
+    height: 3px;
+    transform: scaleX(0);
+    top: unset;
+    left: 0;
+    bottom: -3px;
+  }
+}
 .link-wrap .link-list .link-items:has(.active)::before {
   transform-origin: bottom;
   transform: scaleY(1);
+}
+@media (max-width: 767px) {
+  .link-wrap .link-list .link-items:has(.active)::before {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+}
+@media (max-width: 767px) {
+  .link-wrap .link-list .link-items {
+    flex-shrink: 0;
+  }
+}
+@media (max-width: 767px) {
+  .link-wrap .link-list {
+    display: flex;
+  }
+}
+@media (max-width: 767px) {
+  .link-wrap {
+    scrollbar-width: none;
+    width: 100%;
+    height: unset;
+    background: #FFFFFF;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */
