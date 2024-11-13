@@ -27,10 +27,18 @@ const links = document.querySelectorAll(".link");
 function updateLinks() {
   sections.forEach((section) => {
     let x = section.getClientRects();
-    if (x[0].y + x[0].height > 0 && x[0].y <= 15) {
-      let link = document.querySelector(`a[href="#${section.id}"]`);
-      links.forEach((link) => link.classList.remove("active"));
-      link.classList.add("active");
+    if(window.innerWidth < 767) {
+      if (x[0].y + x[0].height > 0 && x[0].y <= 100) {
+        let link = document.querySelector(`a[href="#${section.id}"]`);
+        links.forEach((link) => link.classList.remove("active"));
+        link.classList.add("active");
+      }
+    } else {
+      if (x[0].y + x[0].height > 0 && x[0].y <= 15) {
+        let link = document.querySelector(`a[href="#${section.id}"]`);
+        links.forEach((link) => link.classList.remove("active"));
+        link.classList.add("active");
+      }
     }
   });
 }
